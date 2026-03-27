@@ -30,7 +30,7 @@ Window::Window(int width, int height, const std::string &title)
     glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
 
     // 3. Create the window using the monitor's width/height
-    m_window = glfwCreateWindow(mode->width, mode->height, title.c_str(), monitor, NULL);
+    m_window = glfwCreateWindow(mode->width, mode->height, title.c_str(), NULL, NULL);
 
     if (!m_window)
     {
@@ -47,8 +47,8 @@ Window::Window(int width, int height, const std::string &title)
         std::cerr << "Failed to initialize GLEW" << std::endl;
     }
 
-    // IMPORTANT: Since you are using CORE PROFILE, you need to initialize
-    // a loader here (like GLEW) before you can draw anything.
+    // print
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 }
 
 Window::~Window()

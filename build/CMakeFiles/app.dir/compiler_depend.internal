@@ -3,10 +3,10 @@
 
 CMakeFiles/app.dir/src/Window.cpp.o
  /home/ericdaniel/Desktop/Projects/maze-runner/src/Window.cpp
- /home/ericdaniel/Desktop/Projects/maze-runner/include/KHR/khrplatform.h
  /home/ericdaniel/Desktop/Projects/maze-runner/include/Window.h
  /usr/include/GL/gl.h
- /usr/include/GL/glext.h
+ /usr/include/GL/glew.h
+ /usr/include/GL/glu.h
  /usr/include/GLFW/glfw3.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -71,6 +71,7 @@ CMakeFiles/app.dir/src/Window.cpp.o
  /usr/include/c++/13/cerrno
  /usr/include/c++/13/clocale
  /usr/include/c++/13/cstddef
+ /usr/include/c++/13/cstdint
  /usr/include/c++/13/cstdio
  /usr/include/c++/13/cstdlib
  /usr/include/c++/13/cwchar
