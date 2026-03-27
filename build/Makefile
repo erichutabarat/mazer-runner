@@ -129,6 +129,30 @@ app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
+src/Objects.o: src/Objects.cpp.o
+.PHONY : src/Objects.o
+
+# target to build an object file
+src/Objects.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Objects.cpp.o
+.PHONY : src/Objects.cpp.o
+
+src/Objects.i: src/Objects.cpp.i
+.PHONY : src/Objects.i
+
+# target to preprocess a source file
+src/Objects.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Objects.cpp.i
+.PHONY : src/Objects.cpp.i
+
+src/Objects.s: src/Objects.cpp.s
+.PHONY : src/Objects.s
+
+# target to generate assembly for a file
+src/Objects.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Objects.cpp.s
+.PHONY : src/Objects.cpp.s
+
 src/Window.o: src/Window.cpp.o
 .PHONY : src/Window.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
+	@echo "... src/Objects.o"
+	@echo "... src/Objects.i"
+	@echo "... src/Objects.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"

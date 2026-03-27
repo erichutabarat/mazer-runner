@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/ericdaniel/Desktop/Projects/maze-runner/src/Objects.cpp" "CMakeFiles/app.dir/src/Objects.cpp.o" "gcc" "CMakeFiles/app.dir/src/Objects.cpp.o.d"
   "/home/ericdaniel/Desktop/Projects/maze-runner/src/Window.cpp" "CMakeFiles/app.dir/src/Window.cpp.o" "gcc" "CMakeFiles/app.dir/src/Window.cpp.o.d"
   "/home/ericdaniel/Desktop/Projects/maze-runner/src/main.cpp" "CMakeFiles/app.dir/src/main.cpp.o" "gcc" "CMakeFiles/app.dir/src/main.cpp.o.d"
   )
