@@ -20,14 +20,32 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime)
 {
     float velocity = m_MovementSpeed * deltaTime;
 
+    // 1. Create a "Grounded" Front Vector
+    // We take the current Front vector, but set Y to 0 so we only move on the XZ plane.
+    glm::vec3 groundedFront = glm::normalize(glm::vec3(m_Front.x, 0.0f, m_Front.z));
+
+    // 2. Calculate the Right vector (already horizontal, so no changes needed)
+    glm::vec3 right = glm::normalize(glm::cross(m_Front, m_Up));
+
+    // 3. Handle Inputs
+    // Forward / Backward
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        m_Position += m_Front * velocity;
+        m_Position += groundedFront * velocity;
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        m_Position -= m_Front * velocity;
+        m_Position -= groundedFront * velocity;
+
+    // Strafe Left / Right
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        m_Position -= glm::normalize(glm::cross(m_Front, m_Up)) * velocity;
+        m_Position -= right * velocity;
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        m_Position += glm::normalize(glm::cross(m_Front, m_Up)) * velocity;
+        m_Position += right * velocity;
+
+    // 4. THE CONDITION CHECKS
+    float floorLevel = -0.5f; // Matches your Floor.cpp
+    float eyeHeight = 1.5f;   // Distance from floor to player "eyes"
+
+    // Hard-lock the height so the player cannot fly or sink
+    m_Position.y = floorLevel + eyeHeight;
 }
 
 void Camera::processMouseMovement(float xoffset, float yoffset, bool constrainPitch)
