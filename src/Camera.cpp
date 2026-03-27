@@ -41,7 +41,10 @@ glm::mat4 Camera::getViewMatrix() const
     return glm::lookAt(m_Position, m_Position + m_Front, m_Up);
 }
 
-void Camera::processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wall *> &walls)
+void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
+                             std::vector<Wall *> &walls,
+                             std::vector<Item> &worldItems,
+                             std::vector<Item> &inventory)
 {
     // --- 1. PHYSICS CONSTANTS ---
     const float GRAVITY = -20.0f;   // Downward pull
@@ -78,6 +81,24 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wa
     {
         m_Position += right * velocity;
         isMoving = true;
+    }
+
+    // pick up items
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+    {
+        for (auto &item : worldItems)
+        {
+            if (!item.isPickedUp)
+            {
+                float dist = glm::distance(m_Position, item.position);
+                if (dist < 1.8f)
+                {
+                    item.isPickedUp = true;
+                    inventory.push_back(item);
+                    std::cout << "[GAME] Picked up: " << item.name << std::endl;
+                }
+            }
+        }
     }
 
     // --- 4. VERTICAL PHYSICS ---

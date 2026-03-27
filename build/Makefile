@@ -345,6 +345,30 @@ src/Floor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Floor.cpp.s
 .PHONY : src/Floor.cpp.s
 
+src/HUD.o: src/HUD.cpp.o
+.PHONY : src/HUD.o
+
+# target to build an object file
+src/HUD.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/HUD.cpp.o
+.PHONY : src/HUD.cpp.o
+
+src/HUD.i: src/HUD.cpp.i
+.PHONY : src/HUD.i
+
+# target to preprocess a source file
+src/HUD.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/HUD.cpp.i
+.PHONY : src/HUD.cpp.i
+
+src/HUD.s: src/HUD.cpp.s
+.PHONY : src/HUD.s
+
+# target to generate assembly for a file
+src/HUD.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/HUD.cpp.s
+.PHONY : src/HUD.cpp.s
+
 src/ItemBox.o: src/ItemBox.cpp.o
 .PHONY : src/ItemBox.o
 
@@ -525,6 +549,9 @@ help:
 	@echo "... src/Floor.o"
 	@echo "... src/Floor.i"
 	@echo "... src/Floor.s"
+	@echo "... src/HUD.o"
+	@echo "... src/HUD.i"
+	@echo "... src/HUD.s"
 	@echo "... src/ItemBox.o"
 	@echo "... src/ItemBox.i"
 	@echo "... src/ItemBox.s"

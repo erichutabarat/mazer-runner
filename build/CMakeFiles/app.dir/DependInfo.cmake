@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_widgets.cpp" "CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o" "gcc" "CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o.d"
   "/home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp" "CMakeFiles/app.dir/src/Camera.cpp.o" "gcc" "CMakeFiles/app.dir/src/Camera.cpp.o.d"
   "/home/ericdaniel/Desktop/Projects/maze-runner/src/Floor.cpp" "CMakeFiles/app.dir/src/Floor.cpp.o" "gcc" "CMakeFiles/app.dir/src/Floor.cpp.o.d"
+  "/home/ericdaniel/Desktop/Projects/maze-runner/src/HUD.cpp" "CMakeFiles/app.dir/src/HUD.cpp.o" "gcc" "CMakeFiles/app.dir/src/HUD.cpp.o.d"
   "/home/ericdaniel/Desktop/Projects/maze-runner/src/ItemBox.cpp" "CMakeFiles/app.dir/src/ItemBox.cpp.o" "gcc" "CMakeFiles/app.dir/src/ItemBox.cpp.o.d"
   "/home/ericdaniel/Desktop/Projects/maze-runner/src/Objects.cpp" "CMakeFiles/app.dir/src/Objects.cpp.o" "gcc" "CMakeFiles/app.dir/src/Objects.cpp.o.d"
   "/home/ericdaniel/Desktop/Projects/maze-runner/src/Wall.cpp" "CMakeFiles/app.dir/src/Wall.cpp.o" "gcc" "CMakeFiles/app.dir/src/Wall.cpp.o.d"

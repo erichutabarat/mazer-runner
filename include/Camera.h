@@ -7,6 +7,7 @@
 #include <GLFW/glfw3.h>
 #include "miniaudio.h"
 #include <vector>
+#include "Item.h"
 
 class Wall;
 
@@ -17,7 +18,10 @@ public:
     ~Camera();
 
     glm::mat4 getViewMatrix() const;
-    void processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wall *> &walls);
+    void processKeyboard(GLFWwindow *window, float deltaTime,
+                         std::vector<Wall *> &walls,
+                         std::vector<Item> &worldItems,
+                         std::vector<Item> &inventory);
 
     // Camera Attributes
     glm::vec3 m_Position;
