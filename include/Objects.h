@@ -12,6 +12,7 @@ public:
     ~Objects();
 
     void draw() const;
+    unsigned int getProgram() const { return m_Program; }
 
 private:
     unsigned int m_VAO, m_VBO, m_Program;
