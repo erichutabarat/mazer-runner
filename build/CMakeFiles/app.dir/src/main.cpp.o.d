@@ -122,8 +122,7 @@ CMakeFiles/app.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /home/ericdaniel/Desktop/Projects/maze-runner/include/Floor.h \
- /home/ericdaniel/Desktop/Projects/maze-runner/include/Objects.h \
+ /home/ericdaniel/Desktop/Projects/maze-runner/include/Camera.h \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -272,7 +271,6 @@ CMakeFiles/app.dir/src/main.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/ericdaniel/Desktop/Projects/maze-runner/include/Camera.h \
  /usr/include/glm/gtc/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_projection.hpp \
  /usr/include/glm/gtc/constants.hpp \
@@ -284,4 +282,6 @@ CMakeFiles/app.dir/src/main.cpp.o: \
  /usr/include/glm/ext/matrix_clip_space.inl \
  /usr/include/glm/ext/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_transform.inl \
- /usr/include/glm/gtc/matrix_transform.inl
+ /usr/include/glm/gtc/matrix_transform.inl \
+ /home/ericdaniel/Desktop/Projects/maze-runner/include/Floor.h \
+ /home/ericdaniel/Desktop/Projects/maze-runner/include/Objects.h

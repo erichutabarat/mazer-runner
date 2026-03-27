@@ -1,8 +1,7 @@
 CMakeFiles/app.dir/src/Camera.cpp.o: \
  /home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp \
- /usr/include/stdc-predef.h \
- /home/ericdaniel/Desktop/Projects/maze-runner/include/Camera.h \
- /usr/include/GL/glew.h /usr/include/c++/13/cstddef \
+ /usr/include/stdc-predef.h /usr/include/GL/glew.h \
+ /usr/include/c++/13/cstddef \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -25,9 +24,10 @@ CMakeFiles/app.dir/src/Camera.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/GL/glu.h \
- /usr/include/GL/gl.h /usr/include/glm/glm.hpp \
- /usr/include/glm/detail/_fixes.hpp /usr/include/c++/13/cmath \
- /usr/include/c++/13/bits/requires_hosted.h \
+ /usr/include/GL/gl.h \
+ /home/ericdaniel/Desktop/Projects/maze-runner/include/Camera.h \
+ /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
+ /usr/include/c++/13/cmath /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/c++/13/bits/cpp_type_traits.h \
  /usr/include/c++/13/ext/type_traits.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \

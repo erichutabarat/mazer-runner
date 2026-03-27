@@ -1,3 +1,4 @@
+#include <GL/glew.h>
 #include "Camera.h"
 
 Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
@@ -27,6 +28,27 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime)
         m_Position -= glm::normalize(glm::cross(m_Front, m_Up)) * velocity;
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         m_Position += glm::normalize(glm::cross(m_Front, m_Up)) * velocity;
+}
+
+void Camera::processMouseMovement(float xoffset, float yoffset, bool constrainPitch)
+{
+    xoffset *= m_MouseSensitivity;
+    yoffset *= m_MouseSensitivity;
+
+    m_Yaw += xoffset;
+    m_Pitch += yoffset;
+
+    // Make sure that when pitch is out of bounds, screen doesn't get flipped
+    if (constrainPitch)
+    {
+        if (m_Pitch > 89.0f)
+            m_Pitch = 89.0f;
+        if (m_Pitch < -89.0f)
+            m_Pitch = -89.0f;
+    }
+
+    // Update Front, Right and Up Vectors using the updated Euler angles
+    updateCameraVectors();
 }
 
 void Camera::updateCameraVectors()

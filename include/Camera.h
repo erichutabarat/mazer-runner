@@ -22,8 +22,12 @@ public:
     float m_Pitch;
     float m_MovementSpeed;
 
+    void processMouseMovement(float xoffset, float yoffset, bool constrainPitch = true);
+
 private:
     void updateCameraVectors();
+    // control sensitivity:
+    float m_MouseSensitivity = 0.1f;
 };
 
 #endif
