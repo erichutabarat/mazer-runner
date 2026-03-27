@@ -129,6 +129,54 @@ app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
+src/Camera.o: src/Camera.cpp.o
+.PHONY : src/Camera.o
+
+# target to build an object file
+src/Camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Camera.cpp.o
+.PHONY : src/Camera.cpp.o
+
+src/Camera.i: src/Camera.cpp.i
+.PHONY : src/Camera.i
+
+# target to preprocess a source file
+src/Camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Camera.cpp.i
+.PHONY : src/Camera.cpp.i
+
+src/Camera.s: src/Camera.cpp.s
+.PHONY : src/Camera.s
+
+# target to generate assembly for a file
+src/Camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Camera.cpp.s
+.PHONY : src/Camera.cpp.s
+
+src/Floor.o: src/Floor.cpp.o
+.PHONY : src/Floor.o
+
+# target to build an object file
+src/Floor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Floor.cpp.o
+.PHONY : src/Floor.cpp.o
+
+src/Floor.i: src/Floor.cpp.i
+.PHONY : src/Floor.i
+
+# target to preprocess a source file
+src/Floor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Floor.cpp.i
+.PHONY : src/Floor.cpp.i
+
+src/Floor.s: src/Floor.cpp.s
+.PHONY : src/Floor.s
+
+# target to generate assembly for a file
+src/Floor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Floor.cpp.s
+.PHONY : src/Floor.cpp.s
+
 src/Objects.o: src/Objects.cpp.o
 .PHONY : src/Objects.o
 
@@ -210,6 +258,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
+	@echo "... src/Camera.o"
+	@echo "... src/Camera.i"
+	@echo "... src/Camera.s"
+	@echo "... src/Floor.o"
+	@echo "... src/Floor.i"
+	@echo "... src/Floor.s"
 	@echo "... src/Objects.o"
 	@echo "... src/Objects.i"
 	@echo "... src/Objects.s"

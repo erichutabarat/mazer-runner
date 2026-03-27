@@ -14,10 +14,11 @@ public:
     void draw() const;
     unsigned int getProgram() const { return m_Program; }
 
-private:
+protected: // <--- CHANGE THIS FROM 'private' TO 'protected'
     unsigned int m_VAO, m_VBO, m_Program;
     int m_VertexCount;
 
+private:
     // Helper to compile shaders
     unsigned int compileShader(unsigned int type, const char *source);
 };

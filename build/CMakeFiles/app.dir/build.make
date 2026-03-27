@@ -69,10 +69,38 @@ include CMakeFiles/app.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/app.dir/flags.make
 
+CMakeFiles/app.dir/src/Camera.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/src/Camera.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp
+CMakeFiles/app.dir/src/Camera.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/src/Camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Camera.cpp.o -MF CMakeFiles/app.dir/src/Camera.cpp.o.d -o CMakeFiles/app.dir/src/Camera.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp
+
+CMakeFiles/app.dir/src/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/Camera.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp > CMakeFiles/app.dir/src/Camera.cpp.i
+
+CMakeFiles/app.dir/src/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/Camera.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp -o CMakeFiles/app.dir/src/Camera.cpp.s
+
+CMakeFiles/app.dir/src/Floor.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/src/Floor.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Floor.cpp
+CMakeFiles/app.dir/src/Floor.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/app.dir/src/Floor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Floor.cpp.o -MF CMakeFiles/app.dir/src/Floor.cpp.o.d -o CMakeFiles/app.dir/src/Floor.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Floor.cpp
+
+CMakeFiles/app.dir/src/Floor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/Floor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/src/Floor.cpp > CMakeFiles/app.dir/src/Floor.cpp.i
+
+CMakeFiles/app.dir/src/Floor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/Floor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/src/Floor.cpp -o CMakeFiles/app.dir/src/Floor.cpp.s
+
 CMakeFiles/app.dir/src/Objects.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/Objects.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Objects.cpp
 CMakeFiles/app.dir/src/Objects.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/src/Objects.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app.dir/src/Objects.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Objects.cpp.o -MF CMakeFiles/app.dir/src/Objects.cpp.o.d -o CMakeFiles/app.dir/src/Objects.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Objects.cpp
 
 CMakeFiles/app.dir/src/Objects.cpp.i: cmake_force
@@ -86,7 +114,7 @@ CMakeFiles/app.dir/src/Objects.cpp.s: cmake_force
 CMakeFiles/app.dir/src/Window.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/Window.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Window.cpp
 CMakeFiles/app.dir/src/Window.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/app.dir/src/Window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/src/Window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Window.cpp.o -MF CMakeFiles/app.dir/src/Window.cpp.o.d -o CMakeFiles/app.dir/src/Window.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Window.cpp
 
 CMakeFiles/app.dir/src/Window.cpp.i: cmake_force
@@ -100,7 +128,7 @@ CMakeFiles/app.dir/src/Window.cpp.s: cmake_force
 CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/main.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/main.cpp
 CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/main.cpp.o -MF CMakeFiles/app.dir/src/main.cpp.o.d -o CMakeFiles/app.dir/src/main.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/main.cpp
 
 CMakeFiles/app.dir/src/main.cpp.i: cmake_force
@@ -113,6 +141,8 @@ CMakeFiles/app.dir/src/main.cpp.s: cmake_force
 
 # Object files for target app
 app_OBJECTS = \
+"CMakeFiles/app.dir/src/Camera.cpp.o" \
+"CMakeFiles/app.dir/src/Floor.cpp.o" \
 "CMakeFiles/app.dir/src/Objects.cpp.o" \
 "CMakeFiles/app.dir/src/Window.cpp.o" \
 "CMakeFiles/app.dir/src/main.cpp.o"
@@ -120,6 +150,8 @@ app_OBJECTS = \
 # External object files for target app
 app_EXTERNAL_OBJECTS =
 
+app: CMakeFiles/app.dir/src/Camera.cpp.o
+app: CMakeFiles/app.dir/src/Floor.cpp.o
 app: CMakeFiles/app.dir/src/Objects.cpp.o
 app: CMakeFiles/app.dir/src/Window.cpp.o
 app: CMakeFiles/app.dir/src/main.cpp.o
@@ -128,7 +160,7 @@ app: /usr/lib/x86_64-linux-gnu/libGL.so
 app: /usr/lib/x86_64-linux-gnu/libGLEW.so
 app: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 app: CMakeFiles/app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -13,6 +13,8 @@ public:
     bool shouldClose() const;
     void update() const;
     void clear(float r, float g, float b, float a) const;
+    // In Window.h
+    GLFWwindow *getNativeWindow() const { return m_window; }
 
 private:
     GLFWwindow *m_window;

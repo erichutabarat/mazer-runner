@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/app.dir/src/Camera.cpp.o"
+  "CMakeFiles/app.dir/src/Camera.cpp.o.d"
+  "CMakeFiles/app.dir/src/Floor.cpp.o"
+  "CMakeFiles/app.dir/src/Floor.cpp.o.d"
   "CMakeFiles/app.dir/src/Objects.cpp.o"
   "CMakeFiles/app.dir/src/Objects.cpp.o.d"
   "CMakeFiles/app.dir/src/Window.cpp.o"

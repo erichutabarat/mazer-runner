@@ -13,6 +13,7 @@ Window::Window(int width, int height, const std::string &title)
         return;
     }
     glEnable(GL_DEPTH_TEST);
+
     // --- CONFIGS ---
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
