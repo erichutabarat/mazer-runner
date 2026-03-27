@@ -17,6 +17,8 @@ Window::Window(int width, int height, const std::string &title)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    // disable resizing to avoid complications with viewport and aspect ratio
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     // --- BORDERLESS FULLSCREEN LOGIC ---
     // 1. Get the primary monitor's video mode (resolution/refresh rate)
