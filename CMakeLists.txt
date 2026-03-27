@@ -23,3 +23,8 @@ find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
 
 target_link_libraries(app PRIVATE OpenGL::GL GLEW::GLEW glfw)
+# Copy assets folder to the build directory automatically
+add_custom_command(TARGET app POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets
+    ${CMAKE_CURRENT_BINARY_DIR}/assets)

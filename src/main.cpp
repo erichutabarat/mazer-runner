@@ -79,7 +79,7 @@ int main()
         ImGui::End();
         camera.processKeyboard(gameWindow.getNativeWindow(), deltaTime);
 
-        gameWindow.clear(0.1f, 0.1f, 0.1f, 1.0f);
+        gameWindow.clear(0.4f, 0.7f, 1.0f, 1.0f);
         glClear(GL_DEPTH_BUFFER_BIT);
 
         glm::mat4 view = camera.getViewMatrix();

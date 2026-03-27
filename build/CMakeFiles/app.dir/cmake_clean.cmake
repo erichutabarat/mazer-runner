@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/app.dir/src/Window.cpp.o.d"
   "CMakeFiles/app.dir/src/main.cpp.o"
   "CMakeFiles/app.dir/src/main.cpp.o.d"
+  "CMakeFiles/app.dir/src/miniaudio.cpp.o"
+  "CMakeFiles/app.dir/src/miniaudio.cpp.o.d"
   "app"
   "app.pdb"
 )

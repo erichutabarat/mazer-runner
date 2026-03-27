@@ -9,7 +9,7 @@ const char *fVertexShader = "#version 330 core\n"
 
 const char *fFragmentShader = "#version 330 core\n"
                               "out vec4 FragColor;\n"
-                              "void main() { FragColor = vec4(0.3f, 0.3f, 0.3f, 1.0f); }\n\0";
+                              "void main() { FragColor = vec4(0.1f, 0.8f, 0.1f, 1.0f); }\n\0";
 
 Floor::Floor() : Objects(nullptr, 0, fVertexShader, fFragmentShader)
 {

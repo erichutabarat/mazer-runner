@@ -417,6 +417,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/miniaudio.o: src/miniaudio.cpp.o
+.PHONY : src/miniaudio.o
+
+# target to build an object file
+src/miniaudio.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/miniaudio.cpp.o
+.PHONY : src/miniaudio.cpp.o
+
+src/miniaudio.i: src/miniaudio.cpp.i
+.PHONY : src/miniaudio.i
+
+# target to preprocess a source file
+src/miniaudio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/miniaudio.cpp.i
+.PHONY : src/miniaudio.cpp.i
+
+src/miniaudio.s: src/miniaudio.cpp.s
+.PHONY : src/miniaudio.s
+
+# target to generate assembly for a file
+src/miniaudio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/miniaudio.cpp.s
+.PHONY : src/miniaudio.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -462,6 +486,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/miniaudio.o"
+	@echo "... src/miniaudio.i"
+	@echo "... src/miniaudio.s"
 .PHONY : help
 
 
