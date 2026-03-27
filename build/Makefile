@@ -369,6 +369,30 @@ src/Objects.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Objects.cpp.s
 .PHONY : src/Objects.cpp.s
 
+src/Wall.o: src/Wall.cpp.o
+.PHONY : src/Wall.o
+
+# target to build an object file
+src/Wall.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Wall.cpp.o
+.PHONY : src/Wall.cpp.o
+
+src/Wall.i: src/Wall.cpp.i
+.PHONY : src/Wall.i
+
+# target to preprocess a source file
+src/Wall.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Wall.cpp.i
+.PHONY : src/Wall.cpp.i
+
+src/Wall.s: src/Wall.cpp.s
+.PHONY : src/Wall.s
+
+# target to generate assembly for a file
+src/Wall.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Wall.cpp.s
+.PHONY : src/Wall.cpp.s
+
 src/Window.o: src/Window.cpp.o
 .PHONY : src/Window.o
 
@@ -480,6 +504,9 @@ help:
 	@echo "... src/Objects.o"
 	@echo "... src/Objects.i"
 	@echo "... src/Objects.s"
+	@echo "... src/Wall.o"
+	@echo "... src/Wall.i"
+	@echo "... src/Wall.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"

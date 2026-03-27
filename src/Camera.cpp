@@ -1,6 +1,8 @@
 #include <GL/glew.h>
 #include "Camera.h"
 #include <iostream>
+#include "Wall.h"
+#include <vector>
 
 Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
     : m_Front(glm::vec3(0.0f, 0.0f, -1.0f)), m_MovementSpeed(5.0f), m_IsSoundLoaded(false)
@@ -39,15 +41,19 @@ glm::mat4 Camera::getViewMatrix() const
     return glm::lookAt(m_Position, m_Position + m_Front, m_Up);
 }
 
-void Camera::processKeyboard(GLFWwindow *window, float deltaTime)
+void Camera::processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wall *> &walls)
 {
+    // 1. Declare it ONCE at the top
     bool isMoving = false;
     float velocity = m_MovementSpeed * deltaTime;
 
     glm::vec3 groundedFront = glm::normalize(glm::vec3(m_Front.x, 0.0f, m_Front.z));
     glm::vec3 right = glm::normalize(glm::cross(m_Front, m_Up));
 
-    // UPDATE isMoving for every key
+    // Save old position for collision "undo"
+    glm::vec3 oldPos = m_Position;
+
+    // 2. Handle Inputs (Updates isMoving to true)
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
         m_Position += groundedFront * velocity;
@@ -69,18 +75,28 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime)
         isMoving = true;
     }
 
+    // 3. Wall Collision Logic
+    for (Wall *wall : walls)
+    {
+        if (wall->isColliding(m_Position, 0.3f))
+        {
+            m_Position = oldPos; // Hit a wall! Reset position.
+            // If we hit a wall and can't move, we might want to stop the sound
+            // but usually, players like the "running against a wall" sound.
+            break;
+        }
+    }
+
+    // 4. Audio Logic (DO NOT re-declare bool isMoving here!)
     if (m_IsSoundLoaded)
     {
         if (isMoving)
         {
             if (!ma_sound_is_playing(&m_FootstepSound))
-            {
                 ma_sound_start(&m_FootstepSound);
-            }
         }
         else
         {
-            // Only stop if it's currently playing to avoid spamming the engine
             if (ma_sound_is_playing(&m_FootstepSound))
             {
                 ma_sound_stop(&m_FootstepSound);
@@ -89,7 +105,8 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime)
         }
     }
 
-    m_Position.y = 1.0f; // Height lock
+    // 5. Final Floor Lock
+    m_Position.y = 1.0f;
 }
 
 void Camera::processMouseMovement(float xoffset, float yoffset, bool constrainPitch)

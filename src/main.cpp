@@ -5,6 +5,8 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include <vector>
+#include <Wall.h>
 
 // Global camera so the callback can see it
 Camera camera(glm::vec3(0.0f, 2.0f, 10.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f);
@@ -49,47 +51,52 @@ int main()
     // 2. Set the callback function
     glfwSetCursorPosCallback(gameWindow.getNativeWindow(), mouse_callback);
 
+    // wall
+    // Outside the loop
+    std::vector<Wall *> gameWalls;
+    gameWalls.push_back(new Wall(glm::vec3(0.0f, 0.5f, -5.0f), glm::vec3(2.0f, 2.0f, 1.0f)));
+
     Floor floor;
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;
 
     while (!gameWindow.shouldClose())
     {
+        // 1. Time & Input FIRST
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
-        // 1. New Frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-        // 2. Create a transparent "Debug Overlay" at the top left
-        ImGui::SetNextWindowPos(ImVec2(10, 10)); // Top-left corner
-        ImGui::Begin("Debug", nullptr,
-                     ImGuiWindowFlags_NoTitleBar |
-                         ImGuiWindowFlags_NoResize |
-                         ImGuiWindowFlags_AlwaysAutoResize |
-                         ImGuiWindowFlags_NoBackground);
 
-        // Show the coordinates from your camera object
-        ImGui::TextColored(ImVec4(1, 1, 0, 1), "Player Position:");
-        ImGui::Text("X: %.2f", camera.m_Position.x);
-        ImGui::Text("Y: %.2f", camera.m_Position.y);
-        ImGui::Text("Z: %.2f", camera.m_Position.z);
+        // Move the player BEFORE calculating the matrices
+        camera.processKeyboard(gameWindow.getNativeWindow(), deltaTime, gameWalls);
 
-        ImGui::End();
-        camera.processKeyboard(gameWindow.getNativeWindow(), deltaTime);
-
-        gameWindow.clear(0.4f, 0.7f, 1.0f, 1.0f);
-        glClear(GL_DEPTH_BUFFER_BIT);
-
+        // 2. Math SECOND
         glm::mat4 view = camera.getViewMatrix();
         glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
+        // 3. ImGui Logic
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        ImGui::SetNextWindowPos(ImVec2(10, 10));
+        ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoBackground);
+        ImGui::TextColored(ImVec4(1, 1, 0, 1), "Player Position:");
+        ImGui::Text("X: %.2f | Y: %.2f | Z: %.2f", camera.m_Position.x, camera.m_Position.y, camera.m_Position.z);
+        ImGui::End();
+
+        // 4. Rendering THIRD
+        gameWindow.clear(0.4f, 0.7f, 1.0f, 1.0f); // Nice sky blue!
+        glClear(GL_DEPTH_BUFFER_BIT);
+
         floor.render(view, proj);
-        // 3. Render ImGui on top of everything else
-        // 4. Render ImGui UI on top of the game
+        for (auto w : gameWalls)
+            w->render(view, proj);
+
+        // 5. UI LAST (So it draws on top of the 3D world)
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
         gameWindow.update();
     }
     return 0;

@@ -6,6 +6,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <GLFW/glfw3.h>
 #include "miniaudio.h"
+#include <vector>
+
+class Wall;
 
 class Camera
 {
@@ -14,7 +17,7 @@ public:
     ~Camera();
 
     glm::mat4 getViewMatrix() const;
-    void processKeyboard(GLFWwindow *window, float deltaTime);
+    void processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wall *> &walls);
 
     // Camera Attributes
     glm::vec3 m_Position;

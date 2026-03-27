@@ -1,0 +1,38 @@
+#include "SoundManager.h"
+#include <iostream>
+
+SoundManager::SoundManager()
+{
+    m_Device = alcOpenDevice(NULL);
+    m_Context = alcCreateContext(m_Device, NULL);
+    alcMakeContextCurrent(m_Context);
+
+    alGenSources(1, &m_Source);
+}
+
+void SoundManager::play(unsigned int buffer, bool loop)
+{
+    int state;
+    alGetSourcei(m_Source, GL_SOURCE_STATE, &state);
+
+    // Only play if not already playing
+    if (state != AL_PLAYING)
+    {
+        alSourcei(m_Source, AL_BUFFER, buffer);
+        alSourcei(m_Source, AL_LOOPING, loop ? AL_TRUE : AL_FALSE);
+        alSourcePlay(m_Source);
+    }
+}
+
+void SoundManager::stop()
+{
+    alSourceStop(m_Source);
+}
+
+SoundManager::~SoundManager()
+{
+    alDeleteSources(1, &m_Source);
+    alcMakeContextCurrent(NULL);
+    alcDestroyContext(m_Context);
+    alcCloseDevice(m_Device);
+}
