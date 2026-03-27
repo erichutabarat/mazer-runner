@@ -345,6 +345,30 @@ src/Floor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Floor.cpp.s
 .PHONY : src/Floor.cpp.s
 
+src/ItemBox.o: src/ItemBox.cpp.o
+.PHONY : src/ItemBox.o
+
+# target to build an object file
+src/ItemBox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/ItemBox.cpp.o
+.PHONY : src/ItemBox.cpp.o
+
+src/ItemBox.i: src/ItemBox.cpp.i
+.PHONY : src/ItemBox.i
+
+# target to preprocess a source file
+src/ItemBox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/ItemBox.cpp.i
+.PHONY : src/ItemBox.cpp.i
+
+src/ItemBox.s: src/ItemBox.cpp.s
+.PHONY : src/ItemBox.s
+
+# target to generate assembly for a file
+src/ItemBox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/ItemBox.cpp.s
+.PHONY : src/ItemBox.cpp.s
+
 src/Objects.o: src/Objects.cpp.o
 .PHONY : src/Objects.o
 
@@ -501,6 +525,9 @@ help:
 	@echo "... src/Floor.o"
 	@echo "... src/Floor.i"
 	@echo "... src/Floor.s"
+	@echo "... src/ItemBox.o"
+	@echo "... src/ItemBox.i"
+	@echo "... src/ItemBox.s"
 	@echo "... src/Objects.o"
 	@echo "... src/Objects.i"
 	@echo "... src/Objects.s"

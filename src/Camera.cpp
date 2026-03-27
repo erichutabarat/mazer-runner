@@ -43,18 +43,22 @@ glm::mat4 Camera::getViewMatrix() const
 
 void Camera::processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wall *> &walls)
 {
-    bool isMoving = false;
+    // --- 1. PHYSICS CONSTANTS ---
+    const float GRAVITY = -20.0f;   // Downward pull
+    const float JUMP_FORCE = 7.5f;  // Upward burst
+    const float eyeHeight = 1.5f;   // Distance from feet to camera
+    const float floorLevel = -0.5f; // Your Floor.cpp Y-coordinate
+    const float groundY = floorLevel + eyeHeight;
+
+    // --- 2. INITIAL SETUP ---
     float velocity = m_MovementSpeed * deltaTime;
-
-    // --- Define these if they aren't in your Header ---
-    const float GRAVITY = -15.0f; // Increased for a "snappier" feel
-    const float JUMP_FORCE = 6.0f;
-
     glm::vec3 groundedFront = glm::normalize(glm::vec3(m_Front.x, 0.0f, m_Front.z));
     glm::vec3 right = glm::normalize(glm::cross(m_Front, m_Up));
-    glm::vec3 oldPos = m_Position;
 
-    // 1. Horizontal Movement
+    glm::vec3 oldPos = m_Position; // Save position for "undo" on collision
+    bool isMoving = false;
+
+    // --- 3. HORIZONTAL MOVEMENT ---
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
         m_Position += groundedFront * velocity;
@@ -76,53 +80,32 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wa
         isMoving = true;
     }
 
-    // 2. JUMP LOGIC
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && m_IsGrounded)
-    {
-        m_VerticalVelocity = JUMP_FORCE;
-        m_IsGrounded = false;
-    }
-
-    // 3. APPLY PHYSICS
+    // --- 4. VERTICAL PHYSICS ---
+    // Apply gravity and update Y position before collision checks
     m_VerticalVelocity += GRAVITY * deltaTime;
     m_Position.y += m_VerticalVelocity * deltaTime;
 
-    // 4. FLOOR COLLISION (This replaces the hard-lock at 1.0f)
-    float floorLevel = -0.5f;
-    float eyeHeight = 1.5f;
-    float groundY = floorLevel + eyeHeight;
+    // Assume we are in the air unless a collision proves otherwise
+    m_IsGrounded = false;
 
-    if (m_Position.y <= groundY)
-    {
-        m_Position.y = groundY;
-        m_VerticalVelocity = 0.0f;
-        m_IsGrounded = true;
-    }
-
-    // --- 5. WALL COLLISION (X, Y, and Z) ---
-    // --- 5. WALL COLLISION (The "Advanced" version) ---
+    // --- 5. WALL COLLISION (SIDES AND TOP) ---
     for (Wall *wall : walls)
     {
         if (wall->isColliding(m_Position, 0.3f))
         {
-            // Calculate the world-space Y coordinate of the wall's top
             float wallTop = wall->getPosition().y + (wall->getSize().y / 2.0f);
-
-            // eyeHeight is 1.5f (from your floor logic)
-            float eyeHeight = 1.5f;
             float playerFeet = m_Position.y - eyeHeight;
 
-            // CHECK: Are we falling AND are our feet above the top of the wall?
-            if (m_VerticalVelocity <= 0 && playerFeet >= wallTop - 0.2f)
+            // Check if we are landing ON TOP of the wall
+            if (m_VerticalVelocity <= 0.0f && playerFeet >= (wallTop - 0.2f))
             {
-                // LAND ON TOP
                 m_Position.y = wallTop + eyeHeight;
                 m_VerticalVelocity = 0.0f;
                 m_IsGrounded = true;
             }
             else
             {
-                // BUMP INTO THE SIDE
+                // We hit the SIDE of the wall: Revert X and Z but keep Y
                 m_Position.x = oldPos.x;
                 m_Position.z = oldPos.z;
             }
@@ -130,10 +113,25 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wa
         }
     }
 
-    // 6. Audio Logic
+    // --- 6. FLOOR COLLISION ---
+    if (m_Position.y <= groundY)
+    {
+        m_Position.y = groundY;
+        m_VerticalVelocity = 0.0f;
+        m_IsGrounded = true;
+    }
+
+    // --- 7. JUMP INPUT ---
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && m_IsGrounded)
+    {
+        m_VerticalVelocity = JUMP_FORCE;
+        m_IsGrounded = false;
+    }
+
+    // --- 8. AUDIO LOGIC ---
     if (m_IsSoundLoaded)
     {
-        // Only play footsteps if moving AND on the ground!
+        // Only play sound if moving horizontally AND touching a surface
         if (isMoving && m_IsGrounded)
         {
             if (!ma_sound_is_playing(&m_FootstepSound))
@@ -148,8 +146,6 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime, std::vector<Wa
             }
         }
     }
-
-    // NOTE: WE DELETED THE m_Position.y = 1.0f LINE!
 }
 
 void Camera::processMouseMovement(float xoffset, float yoffset, bool constrainPitch)
