@@ -284,4 +284,9 @@ CMakeFiles/app.dir/src/main.cpp.o: \
  /usr/include/glm/ext/matrix_transform.inl \
  /usr/include/glm/gtc/matrix_transform.inl \
  /home/ericdaniel/Desktop/Projects/maze-runner/include/Floor.h \
- /home/ericdaniel/Desktop/Projects/maze-runner/include/Objects.h
+ /home/ericdaniel/Desktop/Projects/maze-runner/include/Objects.h \
+ /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui.h \
+ /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imconfig.h \
+ /usr/include/string.h /usr/include/strings.h \
+ /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_glfw.h \
+ /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_opengl3.h

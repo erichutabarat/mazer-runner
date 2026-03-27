@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ericdaniel/Desktop/Projects/maze-runner/include
+CXX_INCLUDES = -I/home/ericdaniel/Desktop/Projects/maze-runner/include -I/home/ericdaniel/Desktop/Projects/maze-runner/imgui
 
 CXX_FLAGS = -std=gnu++17
 

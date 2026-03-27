@@ -69,10 +69,108 @@ include CMakeFiles/app.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/app.dir/flags.make
 
+CMakeFiles/app.dir/imgui/imgui.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/imgui/imgui.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui.cpp
+CMakeFiles/app.dir/imgui/imgui.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/imgui/imgui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/imgui/imgui.cpp.o -MF CMakeFiles/app.dir/imgui/imgui.cpp.o.d -o CMakeFiles/app.dir/imgui/imgui.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui.cpp
+
+CMakeFiles/app.dir/imgui/imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/imgui/imgui.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui.cpp > CMakeFiles/app.dir/imgui/imgui.cpp.i
+
+CMakeFiles/app.dir/imgui/imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/imgui/imgui.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui.cpp -o CMakeFiles/app.dir/imgui/imgui.cpp.s
+
+CMakeFiles/app.dir/imgui/imgui_demo.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/imgui/imgui_demo.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_demo.cpp
+CMakeFiles/app.dir/imgui/imgui_demo.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/app.dir/imgui/imgui_demo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/imgui/imgui_demo.cpp.o -MF CMakeFiles/app.dir/imgui/imgui_demo.cpp.o.d -o CMakeFiles/app.dir/imgui/imgui_demo.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_demo.cpp
+
+CMakeFiles/app.dir/imgui/imgui_demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/imgui/imgui_demo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_demo.cpp > CMakeFiles/app.dir/imgui/imgui_demo.cpp.i
+
+CMakeFiles/app.dir/imgui/imgui_demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/imgui/imgui_demo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_demo.cpp -o CMakeFiles/app.dir/imgui/imgui_demo.cpp.s
+
+CMakeFiles/app.dir/imgui/imgui_draw.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/imgui/imgui_draw.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_draw.cpp
+CMakeFiles/app.dir/imgui/imgui_draw.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app.dir/imgui/imgui_draw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/imgui/imgui_draw.cpp.o -MF CMakeFiles/app.dir/imgui/imgui_draw.cpp.o.d -o CMakeFiles/app.dir/imgui/imgui_draw.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_draw.cpp
+
+CMakeFiles/app.dir/imgui/imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/imgui/imgui_draw.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_draw.cpp > CMakeFiles/app.dir/imgui/imgui_draw.cpp.i
+
+CMakeFiles/app.dir/imgui/imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/imgui/imgui_draw.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_draw.cpp -o CMakeFiles/app.dir/imgui/imgui_draw.cpp.s
+
+CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_glfw.cpp
+CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o -MF CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o.d -o CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_glfw.cpp
+
+CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_glfw.cpp > CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.i
+
+CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_glfw.cpp -o CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.s
+
+CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_opengl3.cpp
+CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o -MF CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_opengl3.cpp
+
+CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_opengl3.cpp > CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.i
+
+CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_impl_opengl3.cpp -o CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.s
+
+CMakeFiles/app.dir/imgui/imgui_tables.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/imgui/imgui_tables.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_tables.cpp
+CMakeFiles/app.dir/imgui/imgui_tables.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/app.dir/imgui/imgui_tables.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/imgui/imgui_tables.cpp.o -MF CMakeFiles/app.dir/imgui/imgui_tables.cpp.o.d -o CMakeFiles/app.dir/imgui/imgui_tables.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_tables.cpp
+
+CMakeFiles/app.dir/imgui/imgui_tables.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/imgui/imgui_tables.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_tables.cpp > CMakeFiles/app.dir/imgui/imgui_tables.cpp.i
+
+CMakeFiles/app.dir/imgui/imgui_tables.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/imgui/imgui_tables.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_tables.cpp -o CMakeFiles/app.dir/imgui/imgui_tables.cpp.s
+
+CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_widgets.cpp
+CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o -MF CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_widgets.cpp
+
+CMakeFiles/app.dir/imgui/imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/imgui/imgui_widgets.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_widgets.cpp > CMakeFiles/app.dir/imgui/imgui_widgets.cpp.i
+
+CMakeFiles/app.dir/imgui/imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/imgui/imgui_widgets.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericdaniel/Desktop/Projects/maze-runner/imgui/imgui_widgets.cpp -o CMakeFiles/app.dir/imgui/imgui_widgets.cpp.s
+
 CMakeFiles/app.dir/src/Camera.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/Camera.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp
 CMakeFiles/app.dir/src/Camera.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/src/Camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/app.dir/src/Camera.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Camera.cpp.o -MF CMakeFiles/app.dir/src/Camera.cpp.o.d -o CMakeFiles/app.dir/src/Camera.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Camera.cpp
 
 CMakeFiles/app.dir/src/Camera.cpp.i: cmake_force
@@ -86,7 +184,7 @@ CMakeFiles/app.dir/src/Camera.cpp.s: cmake_force
 CMakeFiles/app.dir/src/Floor.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/Floor.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Floor.cpp
 CMakeFiles/app.dir/src/Floor.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/app.dir/src/Floor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/app.dir/src/Floor.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Floor.cpp.o -MF CMakeFiles/app.dir/src/Floor.cpp.o.d -o CMakeFiles/app.dir/src/Floor.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Floor.cpp
 
 CMakeFiles/app.dir/src/Floor.cpp.i: cmake_force
@@ -100,7 +198,7 @@ CMakeFiles/app.dir/src/Floor.cpp.s: cmake_force
 CMakeFiles/app.dir/src/Objects.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/Objects.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Objects.cpp
 CMakeFiles/app.dir/src/Objects.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app.dir/src/Objects.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/app.dir/src/Objects.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Objects.cpp.o -MF CMakeFiles/app.dir/src/Objects.cpp.o.d -o CMakeFiles/app.dir/src/Objects.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Objects.cpp
 
 CMakeFiles/app.dir/src/Objects.cpp.i: cmake_force
@@ -114,7 +212,7 @@ CMakeFiles/app.dir/src/Objects.cpp.s: cmake_force
 CMakeFiles/app.dir/src/Window.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/Window.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/Window.cpp
 CMakeFiles/app.dir/src/Window.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/src/Window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/app.dir/src/Window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/Window.cpp.o -MF CMakeFiles/app.dir/src/Window.cpp.o.d -o CMakeFiles/app.dir/src/Window.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/Window.cpp
 
 CMakeFiles/app.dir/src/Window.cpp.i: cmake_force
@@ -128,7 +226,7 @@ CMakeFiles/app.dir/src/Window.cpp.s: cmake_force
 CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/main.cpp.o: /home/ericdaniel/Desktop/Projects/maze-runner/src/main.cpp
 CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/app.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/main.cpp.o -MF CMakeFiles/app.dir/src/main.cpp.o.d -o CMakeFiles/app.dir/src/main.cpp.o -c /home/ericdaniel/Desktop/Projects/maze-runner/src/main.cpp
 
 CMakeFiles/app.dir/src/main.cpp.i: cmake_force
@@ -141,6 +239,13 @@ CMakeFiles/app.dir/src/main.cpp.s: cmake_force
 
 # Object files for target app
 app_OBJECTS = \
+"CMakeFiles/app.dir/imgui/imgui.cpp.o" \
+"CMakeFiles/app.dir/imgui/imgui_demo.cpp.o" \
+"CMakeFiles/app.dir/imgui/imgui_draw.cpp.o" \
+"CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o" \
+"CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o" \
+"CMakeFiles/app.dir/imgui/imgui_tables.cpp.o" \
+"CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o" \
 "CMakeFiles/app.dir/src/Camera.cpp.o" \
 "CMakeFiles/app.dir/src/Floor.cpp.o" \
 "CMakeFiles/app.dir/src/Objects.cpp.o" \
@@ -150,6 +255,13 @@ app_OBJECTS = \
 # External object files for target app
 app_EXTERNAL_OBJECTS =
 
+app: CMakeFiles/app.dir/imgui/imgui.cpp.o
+app: CMakeFiles/app.dir/imgui/imgui_demo.cpp.o
+app: CMakeFiles/app.dir/imgui/imgui_draw.cpp.o
+app: CMakeFiles/app.dir/imgui/imgui_impl_glfw.cpp.o
+app: CMakeFiles/app.dir/imgui/imgui_impl_opengl3.cpp.o
+app: CMakeFiles/app.dir/imgui/imgui_tables.cpp.o
+app: CMakeFiles/app.dir/imgui/imgui_widgets.cpp.o
 app: CMakeFiles/app.dir/src/Camera.cpp.o
 app: CMakeFiles/app.dir/src/Floor.cpp.o
 app: CMakeFiles/app.dir/src/Objects.cpp.o
@@ -160,7 +272,7 @@ app: /usr/lib/x86_64-linux-gnu/libGL.so
 app: /usr/lib/x86_64-linux-gnu/libGLEW.so
 app: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 app: CMakeFiles/app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ericdaniel/Desktop/Projects/maze-runner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

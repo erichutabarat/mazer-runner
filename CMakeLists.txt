@@ -7,12 +7,15 @@ set(CMAKE_CXX_STANDARD 17)
 file(GLOB_RECURSE SRC_FILES 
     src/*.cpp
     src/*.c
+    imgui/*.cpp
+    imgui/*.c
 )
 
 add_executable(app ${SRC_FILES})
 
 # Include directories
 target_include_directories(app PRIVATE include)
+target_include_directories(app PRIVATE include imgui)
 
 # Dependencies
 find_package(OpenGL REQUIRED)
