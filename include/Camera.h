@@ -37,6 +37,12 @@ private:
     ma_engine m_AudioEngine;
     ma_sound m_FootstepSound;
     bool m_IsSoundLoaded = false;
+
+    // Inside the Camera class private members:
+    float m_VerticalVelocity = 0.0f;
+    bool m_IsGrounded = true;
+    const float GRAVITY = -9.8f;   // Downward acceleration
+    const float JUMP_FORCE = 5.0f; // Initial upward burst
 };
 
 #endif

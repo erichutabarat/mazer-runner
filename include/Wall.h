@@ -7,13 +7,13 @@
 class Wall : public Objects
 {
 public:
-    // position = center of wall, size = width/height/depth
     Wall(glm::vec3 position, glm::vec3 size);
-
     void render(glm::mat4 view, glm::mat4 projection);
-
-    // The "Magic" function: Returns true if a point is inside this wall
     bool isColliding(glm::vec3 playerPos, float playerRadius);
+
+    // ADD THESE TWO LINES HERE:
+    glm::vec3 getPosition() const { return m_Position; }
+    glm::vec3 getSize() const { return m_Size; }
 
 private:
     glm::vec3 m_Position;

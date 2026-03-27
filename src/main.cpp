@@ -54,7 +54,8 @@ int main()
     // wall
     // Outside the loop
     std::vector<Wall *> gameWalls;
-    gameWalls.push_back(new Wall(glm::vec3(0.0f, 0.5f, -5.0f), glm::vec3(2.0f, 2.0f, 1.0f)));
+    // Height decreased from 2.0 to 0.75, and Y-position lowered to stay on floor
+    gameWalls.push_back(new Wall(glm::vec3(0.0f, -0.125f, -5.0f), glm::vec3(2.0f, 0.75f, 1.0f)));
 
     Floor floor;
     float deltaTime = 0.0f;
