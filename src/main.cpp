@@ -15,6 +15,7 @@
 #include "HUD.h"
 #include <stb_image.h>
 #include <TextureLoader.h>
+#include <MazeGenerator.h>
 
 // --- GLOBALS ---
 std::vector<Item> inventory;
@@ -69,8 +70,7 @@ int main()
 
     // 4. Populate World
     std::vector<Wall *> gameWalls;
-    gameWalls.push_back(new Wall(glm::vec3(0.0f, -0.125f, -5.0f), glm::vec3(2.0f, 0.75f, 1.0f)));
-    gameWalls.push_back(new Wall(glm::vec3(-5.0f, 0.5f, -2.0f), glm::vec3(1.0f, 2.0f, 10.0f)));
+    MazeGenerator::Generate(gameWalls);
 
     worldItems.push_back(Item("Golden Key", ItemType::KEY, glm::vec3(2.0f, 0.0f, -3.0f), glm::vec3(1.0f, 0.8f, 0.0f)));
     worldItems.push_back(Item("Medkit", ItemType::HEALTH, glm::vec3(-2.0f, 0.0f, -4.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
