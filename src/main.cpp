@@ -18,7 +18,6 @@
 // --- GLOBALS ---
 std::vector<Item> inventory;
 std::vector<Item> worldItems;
-unsigned int grassTexture;
 
 // Global camera initialization
 Camera camera(glm::vec3(0.0f, 1.0f, 5.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f);
@@ -47,12 +46,16 @@ void mouse_callback(GLFWwindow *window, double xposIn, double yposIn)
     camera.processMouseMovement(xoffset, yoffset);
 }
 
+// Helper function to load textures
 unsigned int loadTexture(char const *path)
 {
     unsigned int textureID;
     glGenTextures(1, &textureID);
 
     int width, height, nrComponents;
+    // Tell STB to flip images so they aren't upside down
+    stbi_set_flip_vertically_on_load(true);
+
     unsigned char *data = stbi_load(path, &width, &height, &nrComponents, 0);
     if (data)
     {
@@ -62,17 +65,18 @@ unsigned int loadTexture(char const *path)
         glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
 
-        // Wrapping/Filtering
+        // Wrapping/Filtering (Crucial for tiling floors/walls)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         stbi_image_free(data);
+        std::cout << "[SUCCESS] Loaded texture: " << path << std::endl;
     }
     else
     {
-        std::cout << "Texture failed to load at path: " << path << std::endl;
+        std::cout << "[ERROR] Texture failed to load: " << path << std::endl;
         stbi_image_free(data);
     }
     return textureID;
@@ -82,8 +86,6 @@ int main()
 {
     // 1. Initialize Window and HUD
     Window gameWindow(800, 600, "Maze Runner");
-
-    // HUD class handles all ImGui Init internaly
     HUD hud(gameWindow.getNativeWindow());
 
     // 2. Input Configuration
@@ -95,43 +97,16 @@ int main()
     // 3. Initialize Game Objects
     Floor floor;
     ItemBox itemRenderer;
-    stbi_set_flip_vertically_on_load(true);
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load("assets/textures/grass.jpg", &width, &height, &nrChannels, 0);
 
-    glGenTextures(1, &grassTexture); // Use the global variable
-    glBindTexture(GL_TEXTURE_2D, grassTexture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // This allows the 10.0f UVs to work
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-    // Set parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    if (data)
-    {
-        GLenum format = (nrChannels == 4) ? GL_RGBA : GL_RGB;
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-        std::cout << "[TEXTURE] Grass loaded successfully!" << std::endl;
-    }
-    else
-    {
-        std::cout << "[TEXTURE] Failed to load assets/textures/grass.jpg" << std::endl;
-    }
-    stbi_image_free(data);
-
-    // walls
+    // --- REFACTORED TEXTURE LOADING ---
+    unsigned int grassTexture = loadTexture("assets/textures/grass.jpg");
     unsigned int wallTexture = loadTexture("assets/textures/wall.jpg");
+
+    // 4. Populate World
     std::vector<Wall *> gameWalls;
-    // Jumpable obstacle
     gameWalls.push_back(new Wall(glm::vec3(0.0f, -0.125f, -5.0f), glm::vec3(2.0f, 0.75f, 1.0f)));
-    // Tall boundary wall
     gameWalls.push_back(new Wall(glm::vec3(-5.0f, 0.5f, -2.0f), glm::vec3(1.0f, 2.0f, 10.0f)));
 
-    // 4. Populate World Items
     worldItems.push_back(Item("Golden Key", ItemType::KEY, glm::vec3(2.0f, 0.0f, -3.0f), glm::vec3(1.0f, 0.8f, 0.0f)));
     worldItems.push_back(Item("Medkit", ItemType::HEALTH, glm::vec3(-2.0f, 0.0f, -4.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
 
@@ -145,21 +120,22 @@ int main()
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-        // ONE function handles everything the player DOES
+        // Input & Physics
         camera.processKeyboard(gameWindow.getNativeWindow(), deltaTime, gameWalls, worldItems, inventory);
 
-        // Rendering prep
+        // Rendering Prep
         gameWindow.clear(0.4f, 0.7f, 1.0f, 1.0f);
         glClear(GL_DEPTH_BUFFER_BIT);
 
         glm::mat4 view = camera.getViewMatrix();
         glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
-        // Draw everything
-        // In your main loop:
+        // Draw 3D Objects
         floor.render(view, proj, grassTexture);
+
         for (auto w : gameWalls)
             w->render(view, proj, wallTexture);
+
         for (auto &item : worldItems)
         {
             if (!item.isPickedUp)
@@ -181,6 +157,5 @@ int main()
     for (auto w : gameWalls)
         delete w;
 
-    // HUD Destructor handles ImGui Shutdown
     return 0;
 }
