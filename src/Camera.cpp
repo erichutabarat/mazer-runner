@@ -47,27 +47,41 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
                              std::vector<Item> &inventory)
 {
     // --- 1. PHYSICS CONSTANTS ---
-    const float GRAVITY = -20.0f;   // Downward pull
-    const float JUMP_FORCE = 7.5f;  // Upward burst
-    const float eyeHeight = 1.5f;   // Distance from feet to camera
-    const float floorLevel = -0.5f; // Your Floor.cpp Y-coordinate
-    const float groundY = floorLevel + eyeHeight;
+    const float GRAVITY = -20.0f;
+    const float JUMP_FORCE = 7.5f;
+    const float floorLevel = -0.5f; // Floor Y from Floor.cpp
 
-    // --- 2. INITIAL SETUP ---
+    // --- 2. DYNAMIC STATE ---
+    float targetEyeHeight = 1.5f; // Normal height
     float velocity = m_MovementSpeed * deltaTime;
-    glm::vec3 groundedFront = glm::normalize(glm::vec3(m_Front.x, 0.0f, m_Front.z));
-    glm::vec3 right = glm::normalize(glm::cross(m_Front, m_Up));
-
-    glm::vec3 oldPos = m_Position; // Save position for "undo" on collision
     bool isMoving = false;
 
     // --- 2.5 SPRINTING ---
     if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
     {
-        velocity *= 1.5f; // 50% speed boost
+        velocity *= 1.5f;
     }
 
+    // --- 2.75 CROUCHING ---
+    if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+    {
+        velocity *= 0.5f;       // Slow down
+        targetEyeHeight = 0.7f; // Lower target height
+    }
+
+    // SMOOTH CROUCHING (Optional but recommended)
+    // If you prefer instant, just use: m_CurrentEyeHeight = targetEyeHeight;
+    static float m_CurrentEyeHeight = 1.5f;
+    m_CurrentEyeHeight = glm::mix(m_CurrentEyeHeight, targetEyeHeight, deltaTime * 10.0f);
+
+    // Calculate the actual ground level for this frame
+    float dynamicGroundY = floorLevel + m_CurrentEyeHeight;
+
     // --- 3. HORIZONTAL MOVEMENT ---
+    glm::vec3 groundedFront = glm::normalize(glm::vec3(m_Front.x, 0.0f, m_Front.z));
+    glm::vec3 right = glm::normalize(glm::cross(m_Front, m_Up));
+    glm::vec3 oldPos = m_Position;
+
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
         m_Position += groundedFront * velocity;
@@ -89,15 +103,14 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
         isMoving = true;
     }
 
-    // pick up items
+    // --- INTERACTION (E) ---
     if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
     {
         for (auto &item : worldItems)
         {
             if (!item.isPickedUp)
             {
-                float dist = glm::distance(m_Position, item.position);
-                if (dist < 1.8f)
+                if (glm::distance(m_Position, item.position) < 1.8f)
                 {
                     item.isPickedUp = true;
                     inventory.push_back(item);
@@ -108,42 +121,38 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
     }
 
     // --- 4. VERTICAL PHYSICS ---
-    // Apply gravity and update Y position before collision checks
     m_VerticalVelocity += GRAVITY * deltaTime;
     m_Position.y += m_VerticalVelocity * deltaTime;
-
-    // Assume we are in the air unless a collision proves otherwise
     m_IsGrounded = false;
 
-    // --- 5. WALL COLLISION (SIDES AND TOP) ---
+    // --- 5. WALL COLLISION ---
     for (Wall *wall : walls)
     {
         if (wall->isColliding(m_Position, 0.3f))
         {
             float wallTop = wall->getPosition().y + (wall->getSize().y / 2.0f);
-            float playerFeet = m_Position.y - eyeHeight;
+            // Check feet against wall top using the current height
+            float playerFeet = m_Position.y - m_CurrentEyeHeight;
 
-            // Check if we are landing ON TOP of the wall
             if (m_VerticalVelocity <= 0.0f && playerFeet >= (wallTop - 0.2f))
             {
-                m_Position.y = wallTop + eyeHeight;
+                m_Position.y = wallTop + m_CurrentEyeHeight;
                 m_VerticalVelocity = 0.0f;
                 m_IsGrounded = true;
             }
             else
             {
-                // We hit the SIDE of the wall: Revert X and Z but keep Y
                 m_Position.x = oldPos.x;
                 m_Position.z = oldPos.z;
             }
-            break;
         }
     }
 
     // --- 6. FLOOR COLLISION ---
-    if (m_Position.y <= groundY)
+    // Use dynamicGroundY so the camera height actually changes
+    if (m_Position.y <= dynamicGroundY)
     {
-        m_Position.y = groundY;
+        m_Position.y = dynamicGroundY;
         m_VerticalVelocity = 0.0f;
         m_IsGrounded = true;
     }
@@ -158,7 +167,6 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
     // --- 8. AUDIO LOGIC ---
     if (m_IsSoundLoaded)
     {
-        // Only play sound if moving horizontally AND touching a surface
         if (isMoving && m_IsGrounded)
         {
             if (!ma_sound_is_playing(&m_FootstepSound))
