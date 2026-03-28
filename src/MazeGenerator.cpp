@@ -12,7 +12,7 @@ void MazeGenerator::Generate(std::vector<Wall *> &walls)
     int fieldEnd = 20;
 
     float wallSize = 4.0f;
-    float wallHeight = 15.0f; // Tall walls for a "Maze Runner" feel
+    float wallHeight = 0.5f; // Tall walls for a "Maze Runner" feel
 
     for (int x = 0; x < MAP_WIDTH; x++)
     {

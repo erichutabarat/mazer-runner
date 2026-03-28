@@ -93,7 +93,7 @@ int main()
         glClear(GL_DEPTH_BUFFER_BIT);
 
         glm::mat4 view = camera.getViewMatrix();
-        glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+        glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 1000.0f);
 
         // Draw 3D Objects
         floor.render(view, proj, grassTexture);

@@ -22,14 +22,14 @@ const char *fFragmentShader = "#version 330 core\n"
 Floor::Floor() : Objects(nullptr, 0, fVertexShader, fFragmentShader)
 {
     float vertices[] = {
-        // Positions             // Texture Coords (UV)
-        -50.0f, -0.5f, 50.0f, 0.0f, 10.0f, // Top Left
-        -50.0f, -0.5f, -50.0f, 0.0f, 0.0f, // Bottom Left
-        50.0f, -0.5f, -50.0f, 10.0f, 0.0f, // Bottom Right
+        // Positions                // Texture Coords (UV)
+        -1000.0f, -0.5f, 1000.0f, 0.0f, 100.0f, // Top Left
+        -1000.0f, -0.5f, -1000.0f, 0.0f, 0.0f,  // Bottom Left
+        1000.0f, -0.5f, -1000.0f, 100.0f, 0.0f, // Bottom Right
 
-        -50.0f, -0.5f, 50.0f, 0.0f, 10.0f, // Top Left
-        50.0f, -0.5f, -50.0f, 10.0f, 0.0f, // Bottom Right
-        50.0f, -0.5f, 50.0f, 10.0f, 10.0f  // Top Right
+        -1000.0f, -0.5f, 1000.0f, 0.0f, 100.0f, // Top Left
+        1000.0f, -0.5f, -1000.0f, 100.0f, 0.0f, // Bottom Right
+        1000.0f, -0.5f, 1000.0f, 100.0f, 100.0f // Top Right
     };
 
     // 1. Re-bind the VAO and VBO created by the base class
@@ -63,7 +63,7 @@ void Floor::render(glm::mat4 view, glm::mat4 projection, unsigned int textureID)
     glBindTexture(GL_TEXTURE_2D, textureID); // Use the ID passed from main
 
     // Tell the shader that "texture1" should look at Texture Unit 0
-    glUniform1f(glGetUniformLocation(getProgram(), "tiling"), 10.0f);
+    glUniform1f(glGetUniformLocation(getProgram(), "tiling"), 200.0f);
 
     glm::mat4 model = glm::mat4(1.0f);
 
