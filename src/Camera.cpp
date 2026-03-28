@@ -126,12 +126,13 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
     m_IsGrounded = false;
 
     // --- 5. WALL COLLISION ---
+    // --- 5. WALL COLLISION (WITH SLIDING) ---
     for (Wall *wall : walls)
     {
+        // First, check the Y-axis for landing on top (Ladders/Crates/Low walls)
         if (wall->isColliding(m_Position, 0.3f))
         {
             float wallTop = wall->getPosition().y + (wall->getSize().y / 2.0f);
-            // Check feet against wall top using the current height
             float playerFeet = m_Position.y - m_CurrentEyeHeight;
 
             if (m_VerticalVelocity <= 0.0f && playerFeet >= (wallTop - 0.2f))
@@ -139,12 +140,25 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
                 m_Position.y = wallTop + m_CurrentEyeHeight;
                 m_VerticalVelocity = 0.0f;
                 m_IsGrounded = true;
+                continue; // Skip the sliding logic if we are safely on top
             }
-            else
-            {
-                m_Position.x = oldPos.x;
-                m_Position.z = oldPos.z;
-            }
+        }
+
+        // --- SLIDING LOGIC ---
+        // Try moving ONLY in X
+        glm::vec3 testPosX = m_Position;
+        testPosX.z = oldPos.z; // Revert Z to old
+        if (wall->isColliding(testPosX, 0.3f))
+        {
+            m_Position.x = oldPos.x; // Hit X side, cancel X
+        }
+
+        // Try moving ONLY in Z
+        glm::vec3 testPosZ = m_Position;
+        testPosZ.x = oldPos.x; // Revert X to old
+        if (wall->isColliding(testPosZ, 0.3f))
+        {
+            m_Position.z = oldPos.z; // Hit Z side, cancel Z
         }
     }
 
