@@ -61,6 +61,12 @@ void Camera::processKeyboard(GLFWwindow *window, float deltaTime,
     glm::vec3 oldPos = m_Position; // Save position for "undo" on collision
     bool isMoving = false;
 
+    // --- 2.5 SPRINTING ---
+    if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+    {
+        velocity *= 1.5f; // 50% speed boost
+    }
+
     // --- 3. HORIZONTAL MOVEMENT ---
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
