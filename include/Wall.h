@@ -8,7 +8,7 @@ class Wall : public Objects
 {
 public:
     Wall(glm::vec3 position, glm::vec3 size);
-    void render(glm::mat4 view, glm::mat4 projection);
+    void render(glm::mat4 view, glm::mat4 projection, unsigned int textureID);
     bool isColliding(glm::vec3 playerPos, float playerRadius);
 
     // ADD THESE TWO LINES HERE:

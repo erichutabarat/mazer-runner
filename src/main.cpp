@@ -123,6 +123,8 @@ int main()
     }
     stbi_image_free(data);
 
+    // walls
+    unsigned int wallTexture = loadTexture("assets/textures/wall.jpg");
     std::vector<Wall *> gameWalls;
     // Jumpable obstacle
     gameWalls.push_back(new Wall(glm::vec3(0.0f, -0.125f, -5.0f), glm::vec3(2.0f, 0.75f, 1.0f)));
@@ -157,7 +159,7 @@ int main()
         // In your main loop:
         floor.render(view, proj, grassTexture);
         for (auto w : gameWalls)
-            w->render(view, proj);
+            w->render(view, proj, wallTexture);
         for (auto &item : worldItems)
         {
             if (!item.isPickedUp)
