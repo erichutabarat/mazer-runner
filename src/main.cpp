@@ -14,6 +14,7 @@
 #include "ItemBox.h"
 #include "HUD.h"
 #include <stb_image.h>
+#include <TextureLoader.h>
 
 // --- GLOBALS ---
 std::vector<Item> inventory;
@@ -46,42 +47,6 @@ void mouse_callback(GLFWwindow *window, double xposIn, double yposIn)
     camera.processMouseMovement(xoffset, yoffset);
 }
 
-// Helper function to load textures
-unsigned int loadTexture(char const *path)
-{
-    unsigned int textureID;
-    glGenTextures(1, &textureID);
-
-    int width, height, nrComponents;
-    // Tell STB to flip images so they aren't upside down
-    stbi_set_flip_vertically_on_load(true);
-
-    unsigned char *data = stbi_load(path, &width, &height, &nrComponents, 0);
-    if (data)
-    {
-        GLenum format = (nrComponents == 4) ? GL_RGBA : GL_RGB;
-
-        glBindTexture(GL_TEXTURE_2D, textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-
-        // Wrapping/Filtering (Crucial for tiling floors/walls)
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        stbi_image_free(data);
-        std::cout << "[SUCCESS] Loaded texture: " << path << std::endl;
-    }
-    else
-    {
-        std::cout << "[ERROR] Texture failed to load: " << path << std::endl;
-        stbi_image_free(data);
-    }
-    return textureID;
-}
-
 int main()
 {
     // 1. Initialize Window and HUD
@@ -99,8 +64,8 @@ int main()
     ItemBox itemRenderer;
 
     // --- REFACTORED TEXTURE LOADING ---
-    unsigned int grassTexture = loadTexture("assets/textures/grass.jpg");
-    unsigned int wallTexture = loadTexture("assets/textures/wall.jpg");
+    unsigned int grassTexture = TextureLoader::LoadTexture("assets/textures/grass.jpg");
+    unsigned int wallTexture = TextureLoader::LoadTexture("assets/textures/wall.jpg");
 
     // 4. Populate World
     std::vector<Wall *> gameWalls;
