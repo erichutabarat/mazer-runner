@@ -10,7 +10,7 @@ public:
     Floor();
 
     // We add a special draw function that handles its own matrices
-    void render(glm::mat4 view, glm::mat4 projection);
+    void render(glm::mat4 view, glm::mat4 projection, unsigned int textureID);
 };
 
 #endif

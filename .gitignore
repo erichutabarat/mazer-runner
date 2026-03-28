@@ -1,0 +1,66 @@
+# Build folders
+/build/
+/bin/
+/out/
+/dist/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Generated binaries
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Object files
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.lib
+
+# Debug files
+*.log
+*.tmp
+*.cache
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.user
+*.sln
+*.vcxproj*
+*.xcodeproj/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Assets cache (optional, depends on your project)
+*.import
+*.meta
+
+# Shader compile outputs (if any)
+*.spv
+
+# Dependency folders (if you use package managers)
+# vcpkg
+/vcpkg_installed/
+
+# Conan
+/conanbuildinfo.*
+/conan.lock
+
+# GLAD generated files (optional if auto-generated)
+# /external/glad/src/
+# /external/glad/include/

@@ -13,10 +13,12 @@
 #include "Item.h"
 #include "ItemBox.h"
 #include "HUD.h"
+#include <stb_image.h>
 
 // --- GLOBALS ---
 std::vector<Item> inventory;
 std::vector<Item> worldItems;
+unsigned int grassTexture;
 
 // Global camera initialization
 Camera camera(glm::vec3(0.0f, 1.0f, 5.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f);
@@ -45,6 +47,37 @@ void mouse_callback(GLFWwindow *window, double xposIn, double yposIn)
     camera.processMouseMovement(xoffset, yoffset);
 }
 
+unsigned int loadTexture(char const *path)
+{
+    unsigned int textureID;
+    glGenTextures(1, &textureID);
+
+    int width, height, nrComponents;
+    unsigned char *data = stbi_load(path, &width, &height, &nrComponents, 0);
+    if (data)
+    {
+        GLenum format = (nrComponents == 4) ? GL_RGBA : GL_RGB;
+
+        glBindTexture(GL_TEXTURE_2D, textureID);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+
+        // Wrapping/Filtering
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        stbi_image_free(data);
+    }
+    else
+    {
+        std::cout << "Texture failed to load at path: " << path << std::endl;
+        stbi_image_free(data);
+    }
+    return textureID;
+}
+
 int main()
 {
     // 1. Initialize Window and HUD
@@ -62,6 +95,33 @@ int main()
     // 3. Initialize Game Objects
     Floor floor;
     ItemBox itemRenderer;
+    stbi_set_flip_vertically_on_load(true);
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load("assets/textures/grass.jpg", &width, &height, &nrChannels, 0);
+
+    glGenTextures(1, &grassTexture); // Use the global variable
+    glBindTexture(GL_TEXTURE_2D, grassTexture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // This allows the 10.0f UVs to work
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    // Set parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    if (data)
+    {
+        GLenum format = (nrChannels == 4) ? GL_RGBA : GL_RGB;
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        std::cout << "[TEXTURE] Grass loaded successfully!" << std::endl;
+    }
+    else
+    {
+        std::cout << "[TEXTURE] Failed to load assets/textures/grass.jpg" << std::endl;
+    }
+    stbi_image_free(data);
 
     std::vector<Wall *> gameWalls;
     // Jumpable obstacle
@@ -94,7 +154,8 @@ int main()
         glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
         // Draw everything
-        floor.render(view, proj);
+        // In your main loop:
+        floor.render(view, proj, grassTexture);
         for (auto w : gameWalls)
             w->render(view, proj);
         for (auto &item : worldItems)
